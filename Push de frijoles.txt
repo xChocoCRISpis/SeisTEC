@@ -1,0 +1,3 @@
+git add .
+git commit -m "suck"
+git push origin master
