@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\crisn\\OneDrive\\Escritorio\\SeisTec\\SeisTec\\SeisTec.csproj": {}
+    "C:\\Users\\alfre\\Desktop\\8vo Sem\\Sistemas de Bases de Datos\\U3\\Proyecto\\SeisTEC\\SeisTec\\SeisTec.csproj": {}
   },
   "projects": {
-    "C:\\Users\\crisn\\OneDrive\\Escritorio\\SeisTec\\SeisTec\\SeisTec.csproj": {
+    "C:\\Users\\alfre\\Desktop\\8vo Sem\\Sistemas de Bases de Datos\\U3\\Proyecto\\SeisTEC\\SeisTec\\SeisTec.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\crisn\\OneDrive\\Escritorio\\SeisTec\\SeisTec\\SeisTec.csproj",
+        "projectUniqueName": "C:\\Users\\alfre\\Desktop\\8vo Sem\\Sistemas de Bases de Datos\\U3\\Proyecto\\SeisTEC\\SeisTec\\SeisTec.csproj",
         "projectName": "SeisTec",
-        "projectPath": "C:\\Users\\crisn\\OneDrive\\Escritorio\\SeisTec\\SeisTec\\SeisTec.csproj",
-        "packagesPath": "C:\\Users\\crisn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\crisn\\OneDrive\\Escritorio\\SeisTec\\SeisTec\\obj\\",
+        "projectPath": "C:\\Users\\alfre\\Desktop\\8vo Sem\\Sistemas de Bases de Datos\\U3\\Proyecto\\SeisTEC\\SeisTec\\SeisTec.csproj",
+        "packagesPath": "C:\\Users\\alfre\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alfre\\Desktop\\8vo Sem\\Sistemas de Bases de Datos\\U3\\Proyecto\\SeisTEC\\SeisTec\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\crisn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alfre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,6 +48,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.25.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -63,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
