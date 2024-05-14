@@ -20,6 +20,7 @@ namespace SeisTec.Services
             IMongoDatabase database = client.GetDatabase("SeisTel");
             _logger.LogInformation("Conexión establecida con MongoDB");
             Llamadas_col = database.GetCollection<LlamadasModel>("llamadas"); //Nombre Collection en Mongo
+
         }
 
         public List<LlamadasModel> Get()
@@ -51,6 +52,34 @@ namespace SeisTec.Services
         public void Remove(string id)
         {
             Llamadas_col.DeleteOne(llamada => llamada.Id == id);
+        }
+
+        public int GetLastTelefonoId()
+        {
+            var lastTelefono = Llamadas_col.Find(_ => true)
+            .SortByDescending(t => t.IdTelefono).FirstOrDefault();
+            return lastTelefono != null ? lastTelefono.IdTelefono : 0;
+        }
+
+        public void AddNewTelefono()
+        {
+            int newId = GetLastTelefonoId() + 1;
+            LlamadasModel newTelefono = new LlamadasModel
+            {
+                IdTelefono = newId,
+                Llamada = new List<llamada> { }
+            };
+            Create(newTelefono);
+        }
+
+        public void AddLlamada(int idTelefono, llamada nuevaLlamada)
+        {
+            var filter = Builders<LlamadasModel>.Filter.Eq("IdTelefono", idTelefono);
+            var update = Builders<LlamadasModel>.Update.Push("Llamada", nuevaLlamada);
+            var result = Llamadas_col.UpdateOne(filter, update);
+            _logger.LogInformation("IdTelefono : ", idTelefono);
+            _logger.LogInformation("Resultado de la actualización: {MatchedCount}, {ModifiedCount}", result.MatchedCount, result.ModifiedCount);
+
         }
     }
 }

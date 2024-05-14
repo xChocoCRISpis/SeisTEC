@@ -17,7 +17,7 @@ namespace SeisTec.Models
         public int IdTelefono { get; set; }
 
         [BsonElement("llamada")]
-        public llamada[] Llamada { get; set; }
+        public List<llamada> Llamada { get; set; }
 
     }
 

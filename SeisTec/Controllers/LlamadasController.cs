@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors.Infrastructure;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SeisTec.Models;
 using SeisTec.Services;
 
 namespace SeisTec.Controllers
@@ -15,38 +17,56 @@ namespace SeisTec.Controllers
         }
 
         // GET: LlamadasController
-        // GET: LlamadasController
         public ActionResult Index()
         {
             var llamadas = _llamadasService.Get();
             return View(llamadas);
         }
 
-        // GET: LlamadasController/Details/5
-        public ActionResult Details(int id)
+        public IActionResult AddNewTelefono()
         {
-            return View();
+            _llamadasService.AddNewTelefono();
+            return RedirectToAction(nameof(Index));
+        }
+
+        // GET: LlamadasController/Details/5
+        public ActionResult Details(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var llamada = _llamadasService.Get(id);
+            if (llamada == null)
+            {
+                return NotFound();
+            }
+            return View(llamada);
         }
 
         // GET: LlamadasController/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            return View();
+            var llamadaModel = new LlamadasModel { IdTelefono = id };
+            return View(llamadaModel);
         }
 
         // POST: LlamadasController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public IActionResult Create(LlamadasModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                // Verificar si la lista de llamadas no está vacía
+                if (model.Llamada != null && model.Llamada.Count > 0)
+                {
+                    _llamadasService.AddLlamada(model.IdTelefono, model.Llamada[0]);
+                    return RedirectToAction(nameof(Index));
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return View(model);
         }
 
         // GET: LlamadasController/Edit/5

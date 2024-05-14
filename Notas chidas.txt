@@ -2,4 +2,4 @@
 En el programa hay que tener en Program.cs hay que agregar el servicio
 
 // Add the TelefonosService with Scoped lifetime
-builder.Services.AddScoped<TelefonosService>();
+builder.Services.AddScoped<LlamadasService>();

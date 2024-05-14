@@ -1,0 +1,58 @@
+﻿@model SeisTec.Models.LlamadasModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<p>
+    <a type="button" class="btn btn-primary" asp-controller="Llamadas" asp-action="Index">Registro de SeisTel</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTelefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Llamada)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.IdTelefono)
+            </td>
+            <td>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Llamada.First().Fecha)</th>
+                            <th>@Html.DisplayNameFor(model => model.Llamada.First().Inicio)</th>
+                            <th>@Html.DisplayNameFor(model => model.Llamada.First().Fin)</th>
+                            <th>@Html.DisplayNameFor(model => model.Llamada.First().Duracion)</th>
+                            <th>@Html.DisplayNameFor(model => model.Llamada.First().Compania)</th>
+                            <th>@Html.DisplayNameFor(model => model.Llamada.First().TelefonoId)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var llamada in Model.Llamada)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => llamada.Fecha)</td>
+                                <td>@Html.DisplayFor(modelItem => llamada.Inicio)</td>
+                                <td>@Html.DisplayFor(modelItem => llamada.Fin)</td>
+                                <td>@Html.DisplayFor(modelItem => llamada.Duracion)</td>
+                                <td>@Html.DisplayFor(modelItem => llamada.Compania)</td>
+                                <td>@Html.DisplayFor(modelItem => llamada.TelefonoId)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
