@@ -1,0 +1,12 @@
+git add .
+git commit -m "suck"
+git push origin master
+
+Para traer la rama
+git pull origin master
+
+Si hay un error en el pull
+git add .
+git commit -m "mensaje"
+git pull origin master
+
