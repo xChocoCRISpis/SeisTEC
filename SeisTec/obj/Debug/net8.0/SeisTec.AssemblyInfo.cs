@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SeisTec")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0639499942a296fee24c900424b38c60b1284034")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+faf22bc257cf172e2aa74f093b5815d2002ff8dd")]
 [assembly: System.Reflection.AssemblyProductAttribute("SeisTec")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SeisTec")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="AddNewTelefono" class="btn btn-primary">Agregar nuevo teléfono</a>
+    @Html.ActionLink("Agregar Teléfono", "AddTelefono", null, new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <thead>

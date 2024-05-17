@@ -1,0 +1,67 @@
+﻿@model SeisTec.Models.LlamadasModel
+
+@{
+    ViewData["Title"] = "Agregar Teléfono";
+}
+@if (TempData["Mensaje"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["Mensaje"]
+    </div>
+}
+
+<h1>Agregar Teléfono</h1>
+<a type="button" class="btn btn-primary" asp-controller="Llamadas" asp-action="Index">Registro de SeisTel</a>
+<h4>LlamadasModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddTelefono">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdTelefono" class="control-label"></label>
+                <input asp-for="IdTelefono" class="form-control" />
+                <span asp-validation-for="IdTelefono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Llamada[0].Fecha" class="control-label"></label>
+                <input asp-for="Llamada[0].Fecha" class="form-control" />
+                <span asp-validation-for="Llamada[0].Fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Llamada[0].Inicio" class="control-label"></label>
+                <input asp-for="Llamada[0].Inicio" class="form-control" />
+                <span asp-validation-for="Llamada[0].Inicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Llamada[0].Fin" class="control-label"></label>
+                <input asp-for="Llamada[0].Fin" class="form-control" />
+                <span asp-validation-for="Llamada[0].Fin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Llamada[0].Duracion" class="control-label"></label>
+                <input asp-for="Llamada[0].Duracion" class="form-control" />
+                <span asp-validation-for="Llamada[0].Duracion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Llamada[0].Compania" class="control-label"></label>
+                <input asp-for="Llamada[0].Compania" class="form-control" />
+                <span asp-validation-for="Llamada[0].Compania" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Llamada[0].TelefonoId" class="control-label"></label>
+                <input asp-for="Llamada[0].TelefonoId" class="form-control" />
+                <span asp-validation-for="Llamada[0].TelefonoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Agregar Teléfono" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -32,7 +32,10 @@ namespace SeisTec.Services
         {
             return Llamadas_col.Find(llamada => llamada.Id == id).FirstOrDefault();
         }
-
+        public LlamadasModel GetIdTel(int id)
+        {
+            return Llamadas_col.Find(idtel => idtel.IdTelefono == id).FirstOrDefault();
+        }
         public LlamadasModel Create(LlamadasModel llamada)
         {
             Llamadas_col.InsertOne(llamada);
@@ -68,6 +71,15 @@ namespace SeisTec.Services
             {
                 IdTelefono = newId,
                 Llamada = new List<llamada> { }
+            };
+            Create(newTelefono);
+        }
+        public void AddNewTelefono(int newId, llamada nuevaLlamada)
+        {
+            LlamadasModel newTelefono = new LlamadasModel
+            {
+                IdTelefono = newId,
+                Llamada = new List<llamada> { nuevaLlamada }
             };
             Create(newTelefono);
         }
